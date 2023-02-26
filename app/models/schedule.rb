@@ -2,8 +2,10 @@ class Schedule < ApplicationRecord
   validates :title, presence: true, length: {maximum: 20 }
 validate :start_end_check
     def start_end_check
-      if self.end_at < self.start_at
-       errors.add(:finish, "は開始日より前の日付に登録できません。")  
+      if  start_at && end_at.nil?
+       if self.end_at < self.start_at
+        errors.add(:finish, "は開始日より前の日付に登録できません。")  
+       end 
       end
     end
   validates :memo, length: {maximum:500}

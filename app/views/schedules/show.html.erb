@@ -1,0 +1,33 @@
+<header>スケジュール管理アプリ</header>
+
+<h3><%= @schedule.title %></h3>
+
+<table>
+  <tr>
+    <th>開始日</th>
+    <td><%= @schedule.start_at.strftime("%Y/%m/%d")%></td>
+  </tr>
+  <tr>
+    <th>終了日</th>
+    <td><%= @schedule.end_at.strftime("%Y/%m/%d")%></td>
+  </tr>
+  <tr>
+    <th>終日</th>
+    <td><% if @schedule.allday==true %>
+         ○
+        <% else @schedule.allday==false %>
+        
+        <% end %>
+    </td>
+  </tr>
+  <tr>
+    <th>スケジュールメモ</th>
+    <td><%= @schedule.memo %></td>
+  </tr>
+</table>
+
+<div>
+  <ul>
+    <li><%= link_to "一覧に戻る", :schedules %></li>
+  </ul>
+</div>

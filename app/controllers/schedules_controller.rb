@@ -12,7 +12,8 @@ class SchedulesController < ApplicationController
      if @schedule.save
        flash[:notice]="スケジュールデータの作成が完了しました"
        redirect_to :schedules
-     else
+     elsif
+       flash[:notice]="スケジュールデータが登録できませんでした"
        render "new"
      end
   end

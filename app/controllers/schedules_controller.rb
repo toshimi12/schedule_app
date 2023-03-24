@@ -9,13 +9,13 @@ class SchedulesController < ApplicationController
   
   def create
      @schedule = Schedule.new(params.require(:schedule).permit(:title, :start_at, :end_at, :allday, :memo))
-     if @schedule.save
+    if @schedule.save
        flash[:notice]="スケジュールデータの作成が完了しました"
        redirect_to :schedules
-     elsif
-       flash[:notice]="スケジュールデータが登録できませんでした"
+    else
+       flash[:alert]="スケジュールデータが登録できませんでした"
        render "new"
-     end
+    end
   end
   
   def show

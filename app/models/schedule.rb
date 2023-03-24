@@ -11,5 +11,6 @@ validate :start_end_check
   validates :memo, length: {maximum:500}
   validates :start_at,presence: true
   validates :end_at,presence: true
+  validates :allday,inclusion: [true, false]
 end
 

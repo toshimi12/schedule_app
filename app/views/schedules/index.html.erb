@@ -6,6 +6,10 @@
 <p class="notice"><%=flash[:notice]%></p>
 <% end %>
 
+<%if flash[:alert]%>
+<p class="alert"><%=flash[:alert]%></p>
+<% end %>
+
 
 <p><%=link_to"ユーザー新規登録", :new_schedule %></p>
 <table>
@@ -32,7 +36,7 @@
     <td><%=schedule.end_at&.strftime("%Y/%m/%d")%></td>
     <% if schedule.allday==true %>
     <td>○</td>
-    <%else schedule.allday==false %>
+    <% else schedule.allday==false %>
     <td></td>
     <%end%> 
     <td><%=schedule.updated_at.strftime("%Y/%m/%d/%H:%M")%></td>

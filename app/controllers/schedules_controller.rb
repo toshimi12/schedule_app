@@ -29,9 +29,10 @@ class SchedulesController < ApplicationController
   def update
     @schedule = Schedule.find(params[:id])
     if @schedule.update(params.require(:schedule).permit(:title, :start_at, :end_at, :allday, :memo))
-       flash[:notice] = "ユーザーIDが「#{@schedule.id}」の情報を更新しました"
+       flash[:notice] = "スケジュール「#{@schedule.id}」の情報を更新しました"
        redirect_to :schedules
     else
+      flash[:alert]="スケジュールデータが更新できませんでした"
        render "edit"
     end
   end
@@ -39,7 +40,7 @@ class SchedulesController < ApplicationController
   def destroy
     @schedule = Schedule.find(params[:id])
     @schedule.destroy
-     flash[:notice] = "ユーザーを削除しました"
+     flash[:notice] = "スケジュールを削除しました"
      redirect_to :schedules
   end
 end

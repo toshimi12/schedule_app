@@ -39,7 +39,7 @@
     <% else schedule.allday==false %>
     <td></td>
     <%end%> 
-    <td><%=schedule.updated_at.strftime("%Y/%m/%d/%H:%M")%></td>
+    <td><%=schedule.updated_at.strftime("%Y/%m/%d %H:%M")%></td>
     <td><%=link_to"詳細",schedule%></td>
   　<td><%=link_to"編集",[:edit,schedule]%></td>
  　  <td><%=link_to"削除", schedule, method: :delete, data: { confirm: "本当に削除しますか？" } %></td>>
